@@ -53,8 +53,9 @@ class Vampire {
 
   // Returns the total number of vampires that exist
   get totalDescendents() {
-    let num = 1;
+    let num = 0;
     for (const kid of this.offspring) {
+      num ++;
       num += kid.totalDescendents;
     }
     return num;
@@ -71,23 +72,6 @@ class Vampire {
       result = result.concat(kidResult)
     }
     return result;
-  }
-
-  /** Tree traversal methods **/
-
-  // Returns the vampire object with that name, or null if no vampire exists with that name
-  vampireWithName(name) {
-    
-  }
-
-  // Returns the total number of vampires that exist
-  get totalDescendents() {
-    
-  }
-
-  // Returns an array of all the vampires that were converted after 1980
-  get allMillennialVampires() {
-    
   }
 
   /** Stretch **/
@@ -111,7 +95,7 @@ class Vampire {
       ancestors.push(vampire.creator);
       vampire = vampire.creator;
     }
-    console.log(ancestors);
+    
 
     for (const myAncestor of myAncestors) {
       for (const ancestor of ancestors) {
@@ -125,7 +109,7 @@ class Vampire {
 
 module.exports = Vampire;
 
-rootVampire = new Vampire('root');
+/* rootVampire = new Vampire('root');
 let offspring1,
   offspring2,
   offspring3,
@@ -151,4 +135,4 @@ offspring5.addOffspring(offspring6);
 offspring6.addOffspring(offspring7);
 offspring2.addOffspring(offspring8);
 
-console.log(offspring5.allMillennialVampires);
+console.log(offspring5.allMillennialVampires); */
